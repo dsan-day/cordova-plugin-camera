@@ -37,7 +37,6 @@ import com.outsystems.plugins.camera.controller.helper.OSCAMRExifHelper
 import com.outsystems.plugins.camera.controller.helper.OSCAMRFileHelper
 import com.outsystems.plugins.camera.controller.helper.OSCAMRImageHelper
 import com.outsystems.plugins.camera.controller.helper.OSCAMRMediaHelper
-import com.outsystems.plugins.camera.model.OSCAMREditParameters
 import com.outsystems.plugins.camera.model.OSCAMRMediaType
 import com.outsystems.plugins.camera.model.OSCAMRError
 import com.outsystems.plugins.camera.model.OSCAMRParameters
@@ -87,14 +86,6 @@ class CameraLauncher : CordovaPlugin() {
             = false // Should we allow the user to save the video in the gallery
     private var includeMetadata
             = false // Should we allow the app to obtain metadata about the media item
-    private var latestVersion
-            = false // Used to distinguish between the deprecated and latest version
-    private var editParameters = OSCAMREditParameters(
-        "",
-        fromUri = false,
-        saveToGallery = false,
-        includeMetadata = false
-    )
     var callbackContext: CallbackContext? = null
     private var numPics = 0
     private var conn // Used to update gallery app with newly-written files
@@ -172,28 +163,17 @@ class CameraLauncher : CordovaPlugin() {
                 mediaType = PICTURE
                 mQuality = 50
 
-                val parameters = args.getJSONObject(0)
                 //Take the values from the arguments if they're not already defined (this is tricky)
-                mQuality = parameters.getInt(QUALITY)
-                targetWidth = parameters.getInt(WIDTH)
-                targetHeight = parameters.getInt(HEIGHT)
-                encodingType = parameters.getInt(ENCODING_TYPE)
-                allowEdit = parameters.getBoolean(ALLOW_EDIT)
-                correctOrientation = parameters.getBoolean(CORRECT_ORIENTATION)
-                saveToPhotoAlbum = parameters.getBoolean(SAVE_TO_ALBUM)
-                destType = parameters.getInt(DEST_TYPE)
-                srcType = parameters.getInt(SOURCE_TYPE)
-                mediaType = parameters.getInt(MEDIA_TYPE)
-                includeMetadata = false
-                latestVersion = false
-
-                if (parameters.has(INCLUDE_METADATA)) {
-                    includeMetadata = parameters.getBoolean(INCLUDE_METADATA)
-                }
-
-                if (parameters.has(LATEST_VERSION)) {
-                    latestVersion = parameters.getBoolean(LATEST_VERSION)
-                }
+                mQuality = args.getInt(0)
+                targetWidth = args.getInt(1)
+                targetHeight = args.getInt(2)
+                encodingType = args.getInt(3)
+                allowEdit = args.getBoolean(4)
+                correctOrientation = args.getBoolean(5)
+                saveToPhotoAlbum = args.getBoolean(6)
+                destType = args.getInt(8)
+                srcType = args.getInt(9)
+                mediaType = args.getInt(10)
 
                 // If the user specifies a 0 or smaller width/height
                 // make it -1 so later comparisons succeed
@@ -221,9 +201,7 @@ class CameraLauncher : CordovaPlugin() {
                     mediaType,
                     allowEdit,
                     correctOrientation,
-                    saveToPhotoAlbum,
-                    includeMetadata,
-                    latestVersion
+                    saveToPhotoAlbum
                 )
 
                 try {
@@ -244,15 +222,6 @@ class CameraLauncher : CordovaPlugin() {
 
             }
             "editPicture" -> callEditImage(args)
-            "editURIPicture" -> {
-                editParameters = OSCAMREditParameters(
-                    args.getJSONObject(0).getString(URI),
-                    true,
-                    args.getJSONObject(0).getBoolean(SAVE_TO_GALLERY),
-                    args.getJSONObject(0).getBoolean(INCLUDE_METADATA)
-                )
-                callEditUriImage(editParameters)
-            }
             "recordVideo" -> {
                 saveVideoToGallery = args.getJSONObject(0).getBoolean(SAVE_TO_GALLERY)
                 includeMetadata = args.getJSONObject(0).getBoolean(INCLUDE_METADATA)
@@ -386,57 +355,9 @@ class CameraLauncher : CordovaPlugin() {
     }
 
     fun callEditImage(args: JSONArray) {
-        editParameters = OSCAMREditParameters(
-            "",
-            fromUri = false,
-            saveToGallery = false,
-            includeMetadata = false
-        )
         val imageBase64 = args.getString(0)
         cordova.setActivityResultCallback(this)
         camController?.editImage(cordova.activity, imageBase64, null, null)
-    }
-
-    fun callEditUriImage(editParameters: OSCAMREditParameters) {
-
-        val galleryPermissionNeeded = !((Build.VERSION.SDK_INT < 33 &&
-                PermissionHelper.hasPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) &&
-                PermissionHelper.hasPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)) ||
-                (Build.VERSION.SDK_INT >= 33 &&
-                        PermissionHelper.hasPermission(this, READ_MEDIA_VIDEO) &&
-                        PermissionHelper.hasPermission(this, READ_MEDIA_IMAGES)))
-
-        if (galleryPermissionNeeded) {
-            if (Build.VERSION.SDK_INT < 33) {
-                var permissions = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE)
-                if (editParameters.saveToGallery) {
-                    permissions += Manifest.permission.WRITE_EXTERNAL_STORAGE
-                }
-                PermissionHelper.requestPermissions(
-                    this,
-                    EDIT_PICTURE_SEC,
-                    permissions
-                )
-            }
-            else {
-                PermissionHelper.requestPermissions(
-                    this,
-                    EDIT_PICTURE_SEC,
-                    arrayOf(READ_MEDIA_IMAGES)
-                )
-            }
-            return
-        }
-
-        if (editParameters.editURI.isNullOrEmpty()) {
-            sendError(OSCAMRError.EDIT_PICTURE_EMPTY_URI_ERROR)
-            return
-        }
-        cordova.setActivityResultCallback(this)
-        camController?.editURIPicture(cordova.activity, editParameters.editURI!!, null, null
-        ) {
-            sendError(it)
-        }
     }
 
     fun callCaptureVideo(saveVideoToGallery: Boolean) {
@@ -501,7 +422,6 @@ class CameraLauncher : CordovaPlugin() {
             galleryMediaType = OSCAMRMediaType.fromValue(parameters.getInt(MEDIA_TYPE))
             allowMultipleSelection = parameters.getBoolean(ALLOW_MULTIPLE)
             includeMetadata = parameters.getBoolean(INCLUDE_METADATA)
-            allowEdit = parameters.getBoolean(ALLOW_EDIT)
         }
         catch(_: Exception) {
             sendError(OSCAMRError.GENERIC_CHOOSE_MULTIMEDIA_ERROR)
@@ -513,7 +433,7 @@ class CameraLauncher : CordovaPlugin() {
 
             PermissionHelper.requestPermission(
                 this,
-                OSCAMRController.CHOOSE_FROM_GALLERY_PERMISSION_CODE,
+                CHOOSE_FROM_GALLERY_PERMISSION_CODE,
                 Manifest.permission.READ_EXTERNAL_STORAGE
             )
         }
@@ -522,7 +442,7 @@ class CameraLauncher : CordovaPlugin() {
                     || !PermissionHelper.hasPermission(this, READ_MEDIA_VIDEO))) {
             PermissionHelper.requestPermissions(
                 this,
-                OSCAMRController.CHOOSE_FROM_GALLERY_PERMISSION_CODE,
+                CHOOSE_FROM_GALLERY_PERMISSION_CODE,
                 arrayOf(READ_MEDIA_VIDEO, READ_MEDIA_IMAGES)
             )
         }
@@ -540,7 +460,7 @@ class CameraLauncher : CordovaPlugin() {
             this.cordova.activity,
             galleryMediaType,
             allowMultipleSelection,
-            OSCAMRController.CHOOSE_FROM_GALLERY_REQUEST_CODE
+            CHOOSE_FROM_GALLERY_REQUEST_CODE
         )
     }
 
@@ -575,18 +495,11 @@ class CameraLauncher : CordovaPlugin() {
      */
     override fun onActivityResult(requestCode: Int, resultCode: Int, intent: Intent?) {
 
-        if(requestCode == OSCAMRController.CHOOSE_FROM_GALLERY_REQUEST_CODE) {
+        if(requestCode == CHOOSE_FROM_GALLERY_REQUEST_CODE) {
+
             if(camController == null) {
                 sendError(OSCAMRError.GENERIC_CHOOSE_MULTIMEDIA_ERROR)
                 return
-            }
-
-            if (allowEdit && galleryMediaType == OSCAMRMediaType.IMAGE) {
-                /* This ensures the plugin is called when the result from image edition is returned;
-                When the plugin migrates to the new structure, this call should be
-                made from the library and implemented by cordova plugin, just like in H&F plugin.
-                 */
-                cordova.setActivityResultCallback(this)
             }
 
             CoroutineScope(Dispatchers.Default).launch {
@@ -595,25 +508,9 @@ class CameraLauncher : CordovaPlugin() {
                     resultCode,
                     intent,
                     includeMetadata,
-                    allowEdit,
-                    galleryMediaType,
                     { sendSuccessfulResult(it) },
                     { sendError(it) })
             }
-            return
-        }
-
-        if (requestCode == OSCAMRController.EDIT_FROM_GALLERY_REQUEST_CODE) {
-            CoroutineScope(Dispatchers.Default).launch {
-                camController!!.onChooseFromGalleryEditResult(
-                    cordova.activity,
-                    resultCode,
-                    intent,
-                    includeMetadata,
-                    { sendSuccessfulResult(it) },
-                    { sendError(it) })
-            }
-            return
         }
 
         // Get src and dest types from request code for a Camera Activity
@@ -621,13 +518,9 @@ class CameraLauncher : CordovaPlugin() {
         var destType = requestCode % 16 - 1
         if (requestCode == CROP_GALERY) {
             if (resultCode == Activity.RESULT_OK) {
-                editParameters.fromUri = false
-                camController?.processResultFromEdit(cordova.activity, intent, editParameters,
+                camController?.processResultFromEdit(intent,
                     {
                         callbackContext?.success(it)
-                    },
-                    {
-                        // do nothing, because this callback shouldn't be called in this case
                     },
                     {
                         sendError(OSCAMRError.EDIT_IMAGE_ERROR)
@@ -644,20 +537,16 @@ class CameraLauncher : CordovaPlugin() {
                 // to pass arcane codes back.
                 destType = requestCode - CROP_CAMERA
                 try {
+                    //processResultFromCamera(destType, intent)
                     camParameters?.let { it ->
                         camController?.processResultFromCamera(
                             cordova.activity,
+                            destType,
                             intent,
                             it,
                             { image ->
                                 val pluginResult = PluginResult(PluginResult.Status.OK, image)
                                 this.callbackContext?.sendPluginResult(pluginResult)
-                            },
-                            { mediaResult ->
-                                val gson = GsonBuilder().create()
-                                val resultJson = gson.toJson(mediaResult)
-                                val pluginResult = PluginResult(PluginResult.Status.OK, resultJson)
-                                callbackContext?.sendPluginResult(pluginResult)
                             },
                             { error ->
                                 sendError(error)
@@ -682,14 +571,7 @@ class CameraLauncher : CordovaPlugin() {
                         val tmpFile = FileProvider.getUriForFile(
                             cordova.activity,
                             "$applicationId.camera.provider",
-                            camController!!.createCaptureFile(
-                                cordova.activity,
-                                encodingType,
-                                cordova.activity.getSharedPreferences(
-                                    STORE,
-                                    Context.MODE_PRIVATE
-                                ).getString(EDIT_FILE_NAME_KEY, "") ?: ""
-                            )
+                            camController!!.createCaptureFile(cordova.activity, encodingType)
                         )
                         cordova.setActivityResultCallback(this)
                         camController?.openCropActivity(
@@ -702,17 +584,12 @@ class CameraLauncher : CordovaPlugin() {
                         camParameters?.let { params ->
                             camController?.processResultFromCamera(
                                 cordova.activity,
+                                destType,
                                 intent,
                                 params,
                                 {
                                     val pluginResult = PluginResult(PluginResult.Status.OK, it)
                                     this.callbackContext?.sendPluginResult(pluginResult)
-                                },
-                                { mediaResult ->
-                                    val gson = GsonBuilder().create()
-                                    val resultJson = gson.toJson(mediaResult)
-                                    val pluginResult = PluginResult(PluginResult.Status.OK, resultJson)
-                                    callbackContext?.sendPluginResult(pluginResult)
                                 },
                                 {
                                     val pluginResult =
@@ -733,6 +610,7 @@ class CameraLauncher : CordovaPlugin() {
             }
         } else if (srcType == PHOTOLIBRARY || srcType == SAVEDPHOTOALBUM) {
             if (resultCode == Activity.RESULT_OK && intent != null) {
+                val finalDestType = destType
                 if (allowEdit) {
                     cordova.setActivityResultCallback(this)
                     val uri = intent.data
@@ -742,6 +620,7 @@ class CameraLauncher : CordovaPlugin() {
                         camParameters?.let { params ->
                             camController?.processResultFromGallery(
                                 this.cordova.activity,
+                                finalDestType,
                                 intent,
                                 params,
                                 {
@@ -761,18 +640,12 @@ class CameraLauncher : CordovaPlugin() {
             } else {
                 sendError(OSCAMRError.GET_IMAGE_ERROR)
             }
-        } else if (requestCode == OSCAMRController.EDIT_REQUEST_CODE) {
+        } else if (requestCode == EDIT_RESULT) {
             if (resultCode == Activity.RESULT_OK) {
-                camController?.processResultFromEdit(cordova.activity, intent, editParameters,
+                camController?.processResultFromEdit(intent,
                     {
                         val pluginResult = PluginResult(PluginResult.Status.OK, it)
                         this.callbackContext?.sendPluginResult(pluginResult)
-                    },
-                    { mediaResult ->
-                        val gson = GsonBuilder().create()
-                        val resultJson = gson.toJson(mediaResult)
-                        val pluginResult = PluginResult(PluginResult.Status.OK, resultJson)
-                        callbackContext?.sendPluginResult(pluginResult)
                     },
                     {
                         sendError(it)
@@ -868,8 +741,7 @@ class CameraLauncher : CordovaPlugin() {
             }
             SAVE_TO_ALBUM_SEC -> callGetImage(srcType, destType, encodingType)
             CAPTURE_VIDEO_SEC -> callCaptureVideo(saveVideoToGallery)
-            OSCAMRController.CHOOSE_FROM_GALLERY_PERMISSION_CODE -> callChooseFromGallery()
-            EDIT_PICTURE_SEC -> callEditUriImage(editParameters)
+            CHOOSE_FROM_GALLERY_PERMISSION_CODE -> callChooseFromGallery()
         }
     }
 
@@ -990,7 +862,6 @@ class CameraLauncher : CordovaPlugin() {
         private const val TAKE_PIC_SEC = 0
         private const val SAVE_TO_ALBUM_SEC = 1
         private const val CAPTURE_VIDEO_SEC = 2
-        private const val EDIT_PICTURE_SEC = 3
 
         private const val LOG_TAG = "CameraLauncher"
 
@@ -1003,31 +874,21 @@ class CameraLauncher : CordovaPlugin() {
         private const val READ_MEDIA_IMAGES = "android.permission.READ_MEDIA_IMAGES"
         private const val READ_MEDIA_VIDEO = "android.permission.READ_MEDIA_VIDEO"
 
+        private const val EDIT_RESULT = 7
+
         //for errors
         private const val ERROR_FORMAT_PREFIX = "OS-PLUG-CAMR-"
         protected val permissions = createPermissionArray()
 
+        private const val CHOOSE_FROM_GALLERY_REQUEST_CODE = 869456849
+        private const val CHOOSE_FROM_GALLERY_PERMISSION_CODE = 869454849
+
         private const val STORE = "CameraStore"
-        private const val EDIT_FILE_NAME_KEY = "EditFileName"
         private const val VIDEO_URI = "videoURI"
         private const val SAVE_TO_GALLERY = "saveToGallery"
         private const val INCLUDE_METADATA = "includeMetadata"
-        private const val LATEST_VERSION = "latestVersion"
         private const val ALLOW_MULTIPLE = "allowMultipleSelection"
         private const val MEDIA_TYPE = "mediaType"
-        private const val URI = "uri"
-
-        //take picture json
-        private const val QUALITY = "quality"
-        private const val WIDTH = "targetWidth"
-        private const val HEIGHT = "targetHeight"
-        private const val ENCODING_TYPE = "encodingType"
-        private const val ALLOW_EDIT = "allowEdit"
-        private const val CORRECT_ORIENTATION = "correctOrientation"
-        private const val SAVE_TO_ALBUM = "saveToPhotoAlbum"
-        private const val SOURCE_TYPE = "sourceType"
-        private const val CAMERA_DIRECTION = "caneraDirection"
-        private const val DEST_TYPE = "destinationType"
 
         private fun createPermissionArray(): Array<String> {
             return if (Build.VERSION.SDK_INT < 33) {
