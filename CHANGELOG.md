@@ -12,14 +12,14 @@ The changes documented here do not include those from the original repository.
 
 - Update the iOS framework. This adds the Privacy Manifest file (https://outsystemsrd.atlassian.net/browse/RMET-3279).
 
+### Chores
+
+- Update cordova hooks with new OutSystems specific errors. (https://outsystemsrd.atlassian.net/browse/RMET-3316)
+
 ## [4.2.0-OS46]
 
 ### 23-01-2024
 iOS - Updated iOS lib to fix mirroring image while editing. (https://outsystemsrd.atlassian.net/browse/RMET-2848)
-
-## [4.2.0-OS45]
-
-- Chore: Update cordova hooks with new OutSystems specific errors. (https://outsystemsrd.atlassian.net/browse/RMET-3316)
 
 ## [4.2.0-OS45]
 
