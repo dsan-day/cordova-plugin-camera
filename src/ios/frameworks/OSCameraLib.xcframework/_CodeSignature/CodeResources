@@ -6,31 +6,31 @@
 	<dict>
 		<key>ios-arm64/OSCameraLib.framework/Assets.car</key>
 		<data>
-		2WJKbtTPtXRR74GKWGbdHi+sYCo=
+		tLaxmYH6uimZuSfBlvLw4mSj5Q0=
 		</data>
 		<key>ios-arm64/OSCameraLib.framework/Headers/OSCameraLib-Swift.h</key>
 		<data>
-		OWjdhvIdHKV3OVms4OwJEhfvTV8=
+		S3f1aymV3CmPgKO3/UrQic+eWmE=
 		</data>
 		<key>ios-arm64/OSCameraLib.framework/Info.plist</key>
 		<data>
-		hdQ3rQFCgbzR+ZauKsmmjWDKHp4=
+		+Bddvc9CfmDf4I9icMQmvCS4kCI=
 		</data>
 		<key>ios-arm64/OSCameraLib.framework/Modules/OSCameraLib.swiftmodule/arm64-apple-ios.abi.json</key>
 		<data>
-		F9grQMuH3MrxKsGmiNDsshoJTH0=
+		YxIy/wXuk3WLrYEpIBYfqBJVttQ=
 		</data>
 		<key>ios-arm64/OSCameraLib.framework/Modules/OSCameraLib.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<data>
-		Y0kB8RV5dansKwuw7wOvL9YMKPM=
+		FRkBpQNFqX/n9PVRSLQj7kaK7Co=
 		</data>
 		<key>ios-arm64/OSCameraLib.framework/Modules/OSCameraLib.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		VcCG9nxXUYgZYFEKTPyT83AMCAM=
+		eg3TWzwWKe2QEHTTgkP+M0Nn/BI=
 		</data>
 		<key>ios-arm64/OSCameraLib.framework/Modules/OSCameraLib.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		Y0kB8RV5dansKwuw7wOvL9YMKPM=
+		FRkBpQNFqX/n9PVRSLQj7kaK7Co=
 		</data>
 		<key>ios-arm64/OSCameraLib.framework/Modules/module.modulemap</key>
 		<data>
@@ -38,7 +38,7 @@
 		</data>
 		<key>ios-arm64/OSCameraLib.framework/OSCameraLib</key>
 		<data>
-		dyTW1GiMq/ALKGP+l62OYinnPlY=
+		h0Xq/2LyHX3QrBRmOrVcoyl1d+c=
 		</data>
 		<key>ios-arm64/OSCameraLib.framework/PrivacyInfo.xcprivacy</key>
 		<data>
@@ -46,47 +46,47 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/OSCameraLib.framework/Assets.car</key>
 		<data>
-		2WJKbtTPtXRR74GKWGbdHi+sYCo=
+		tLaxmYH6uimZuSfBlvLw4mSj5Q0=
 		</data>
 		<key>ios-arm64_x86_64-simulator/OSCameraLib.framework/Headers/OSCameraLib-Swift.h</key>
 		<data>
-		S726jPEJcFzqt676V1S4mAsAtZw=
+		iP+Fpb5CO6/itW6wX38r/QNdvVo=
 		</data>
 		<key>ios-arm64_x86_64-simulator/OSCameraLib.framework/Info.plist</key>
 		<data>
-		0caJekZUKiz4kGHmsbd4qRex5q0=
+		R/22Pt579yCYB/+34JKIoSe6fT8=
 		</data>
 		<key>ios-arm64_x86_64-simulator/OSCameraLib.framework/Modules/OSCameraLib.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		F9grQMuH3MrxKsGmiNDsshoJTH0=
+		smu4od7v8vyM0BkV989vo7o4fg8=
 		</data>
 		<key>ios-arm64_x86_64-simulator/OSCameraLib.framework/Modules/OSCameraLib.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		z27Aej5iHQkzYdGv9F3Cpowc/wg=
+		l0HwmN5bJOGP6EM07Edr907dbmc=
 		</data>
 		<key>ios-arm64_x86_64-simulator/OSCameraLib.framework/Modules/OSCameraLib.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		biTi0LmSWAy8PP6wskXf0kKAmCE=
+		E35dvTdC+WWp1zRFTFADmeb33Js=
 		</data>
 		<key>ios-arm64_x86_64-simulator/OSCameraLib.framework/Modules/OSCameraLib.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		z27Aej5iHQkzYdGv9F3Cpowc/wg=
+		l0HwmN5bJOGP6EM07Edr907dbmc=
 		</data>
 		<key>ios-arm64_x86_64-simulator/OSCameraLib.framework/Modules/OSCameraLib.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		F9grQMuH3MrxKsGmiNDsshoJTH0=
+		smu4od7v8vyM0BkV989vo7o4fg8=
 		</data>
 		<key>ios-arm64_x86_64-simulator/OSCameraLib.framework/Modules/OSCameraLib.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		yTLqJmUU9ko2VHMKSrSfXIeuk7k=
+		L3r4tYbVWe4DPU56Cwz+Sj+8zHI=
 		</data>
 		<key>ios-arm64_x86_64-simulator/OSCameraLib.framework/Modules/OSCameraLib.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		Gxt3A8jnv9zXL6ucgy6hMtkrwO8=
+		VAd3TF7Jzr9HD5EHisPAHSuEeJs=
 		</data>
 		<key>ios-arm64_x86_64-simulator/OSCameraLib.framework/Modules/OSCameraLib.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		yTLqJmUU9ko2VHMKSrSfXIeuk7k=
+		L3r4tYbVWe4DPU56Cwz+Sj+8zHI=
 		</data>
 		<key>ios-arm64_x86_64-simulator/OSCameraLib.framework/Modules/module.modulemap</key>
 		<data>
@@ -94,7 +94,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/OSCameraLib.framework/OSCameraLib</key>
 		<data>
-		qNx6U0Qc0zaLWGX8G93cIwbay+U=
+		RfD1Q0aOBycOHMJ7CfXODHUckjg=
 		</data>
 		<key>ios-arm64_x86_64-simulator/OSCameraLib.framework/PrivacyInfo.xcprivacy</key>
 		<data>
@@ -102,7 +102,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/OSCameraLib.framework/_CodeSignature/CodeResources</key>
 		<data>
-		YvXUHX6eU7ENqqUECEprNjZ/vmQ=
+		q/vWx1v4/igKZf4hJKF6tPCrSY8=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -111,77 +111,77 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			2WJKbtTPtXRR74GKWGbdHi+sYCo=
+			tLaxmYH6uimZuSfBlvLw4mSj5Q0=
 			</data>
 			<key>hash2</key>
 			<data>
-			up3z3i1Rp+aZkPK/6lDQ0HBTArh7GmqRsgkOZ9QReMU=
+			S5+5IO8Pas3B3cZIlpdMmGsW3CKflhh5f6sk7Klm0zI=
 			</data>
 		</dict>
 		<key>ios-arm64/OSCameraLib.framework/Headers/OSCameraLib-Swift.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			OWjdhvIdHKV3OVms4OwJEhfvTV8=
+			S3f1aymV3CmPgKO3/UrQic+eWmE=
 			</data>
 			<key>hash2</key>
 			<data>
-			PnBXYbbc/Z0eeFMcVVIXraHGDy+QnU9UCGbCbignFuE=
+			+Tl6IUxKca7CPlex8jPFBJ3Caau6harJ6SfYOvAP1E8=
 			</data>
 		</dict>
 		<key>ios-arm64/OSCameraLib.framework/Info.plist</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			hdQ3rQFCgbzR+ZauKsmmjWDKHp4=
+			+Bddvc9CfmDf4I9icMQmvCS4kCI=
 			</data>
 			<key>hash2</key>
 			<data>
-			KaS2GMOmeEZnGmXx16oElWpQffQFO8Hc3LqGXh/Z32w=
+			ku5WAKpUL8H9zVtyIdS0Vi9ulVec5w9E6EoWPw66hM8=
 			</data>
 		</dict>
 		<key>ios-arm64/OSCameraLib.framework/Modules/OSCameraLib.swiftmodule/arm64-apple-ios.abi.json</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			F9grQMuH3MrxKsGmiNDsshoJTH0=
+			YxIy/wXuk3WLrYEpIBYfqBJVttQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			KDM4olUmm6hPHbkrUZwY2D+helyVLIkefN8ftDKSIYk=
+			E/vnfgAXwcYlx7nE8la2zLb3ZrbpWtyMHaWX0b89Gcw=
 			</data>
 		</dict>
 		<key>ios-arm64/OSCameraLib.framework/Modules/OSCameraLib.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Y0kB8RV5dansKwuw7wOvL9YMKPM=
+			FRkBpQNFqX/n9PVRSLQj7kaK7Co=
 			</data>
 			<key>hash2</key>
 			<data>
-			xn/SiQTBpz9WyL650Ezf3sdHy1MYbR/+AhOngmiQWVg=
+			9rVHxq3AbPVX59DrfT9/uJMq5RZTU4QYw6ofWPCxjZ0=
 			</data>
 		</dict>
 		<key>ios-arm64/OSCameraLib.framework/Modules/OSCameraLib.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			VcCG9nxXUYgZYFEKTPyT83AMCAM=
+			eg3TWzwWKe2QEHTTgkP+M0Nn/BI=
 			</data>
 			<key>hash2</key>
 			<data>
-			Z7PWy3eA3ANZMdKnQBqb+6fM4qreGBrGWtQWIGyEwVU=
+			b0jW4HTV6VdSDCJpbdIN+/0jyQbgO39PB/ThwRJifp0=
 			</data>
 		</dict>
 		<key>ios-arm64/OSCameraLib.framework/Modules/OSCameraLib.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Y0kB8RV5dansKwuw7wOvL9YMKPM=
+			FRkBpQNFqX/n9PVRSLQj7kaK7Co=
 			</data>
 			<key>hash2</key>
 			<data>
-			xn/SiQTBpz9WyL650Ezf3sdHy1MYbR/+AhOngmiQWVg=
+			9rVHxq3AbPVX59DrfT9/uJMq5RZTU4QYw6ofWPCxjZ0=
 			</data>
 		</dict>
 		<key>ios-arm64/OSCameraLib.framework/Modules/module.modulemap</key>
@@ -199,11 +199,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			dyTW1GiMq/ALKGP+l62OYinnPlY=
+			h0Xq/2LyHX3QrBRmOrVcoyl1d+c=
 			</data>
 			<key>hash2</key>
 			<data>
-			EkgFb2x5ngvXB31rhTwxni1uk/g+9nbEeIQNHp53RR8=
+			YCThATsSjabllTgrUOHs9EoILbVBVW+NjEDLFHTQwiE=
 			</data>
 		</dict>
 		<key>ios-arm64/OSCameraLib.framework/PrivacyInfo.xcprivacy</key>
@@ -221,121 +221,121 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			2WJKbtTPtXRR74GKWGbdHi+sYCo=
+			tLaxmYH6uimZuSfBlvLw4mSj5Q0=
 			</data>
 			<key>hash2</key>
 			<data>
-			up3z3i1Rp+aZkPK/6lDQ0HBTArh7GmqRsgkOZ9QReMU=
+			S5+5IO8Pas3B3cZIlpdMmGsW3CKflhh5f6sk7Klm0zI=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/OSCameraLib.framework/Headers/OSCameraLib-Swift.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			S726jPEJcFzqt676V1S4mAsAtZw=
+			iP+Fpb5CO6/itW6wX38r/QNdvVo=
 			</data>
 			<key>hash2</key>
 			<data>
-			+I5mHxGqaHZ/1zISDHUV7YOJTVwg5EHyIYVsgCL3AA4=
+			TryJnCB5ADeDMugpJ9RSu7TG/yQgmd992Gkswmlg4dk=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/OSCameraLib.framework/Info.plist</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			0caJekZUKiz4kGHmsbd4qRex5q0=
+			R/22Pt579yCYB/+34JKIoSe6fT8=
 			</data>
 			<key>hash2</key>
 			<data>
-			+HQL1Zqw34+kwcvIN5r30WHyxN2taPqlpUKSppny3Uo=
+			iF7nkkKmjNaMrDMUgy+mGfesHtkBRX+D9FkF16xbITg=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/OSCameraLib.framework/Modules/OSCameraLib.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			F9grQMuH3MrxKsGmiNDsshoJTH0=
+			smu4od7v8vyM0BkV989vo7o4fg8=
 			</data>
 			<key>hash2</key>
 			<data>
-			KDM4olUmm6hPHbkrUZwY2D+helyVLIkefN8ftDKSIYk=
+			TDkoBLcYxBPITkdh2kidprQzKLaLF76pZAzDB384DQk=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/OSCameraLib.framework/Modules/OSCameraLib.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			z27Aej5iHQkzYdGv9F3Cpowc/wg=
+			l0HwmN5bJOGP6EM07Edr907dbmc=
 			</data>
 			<key>hash2</key>
 			<data>
-			F4KqrMjnuyPZ3EjkTz482io5sdwDfX2ijAfvyauGBac=
+			DOVpFLAjvrPSmRQhK/PL4VzCstnI5rfHstBg2XnWKCg=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/OSCameraLib.framework/Modules/OSCameraLib.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			biTi0LmSWAy8PP6wskXf0kKAmCE=
+			E35dvTdC+WWp1zRFTFADmeb33Js=
 			</data>
 			<key>hash2</key>
 			<data>
-			g+49N/UBCRUQ7B4Q9GZbpdoExLgU2rCb00BuWnjVS1U=
+			V9RcDjlL2y72/6PJV9Bm/YutfRxQfl6rzE9HzFbDUTY=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/OSCameraLib.framework/Modules/OSCameraLib.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			z27Aej5iHQkzYdGv9F3Cpowc/wg=
+			l0HwmN5bJOGP6EM07Edr907dbmc=
 			</data>
 			<key>hash2</key>
 			<data>
-			F4KqrMjnuyPZ3EjkTz482io5sdwDfX2ijAfvyauGBac=
+			DOVpFLAjvrPSmRQhK/PL4VzCstnI5rfHstBg2XnWKCg=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/OSCameraLib.framework/Modules/OSCameraLib.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			F9grQMuH3MrxKsGmiNDsshoJTH0=
+			smu4od7v8vyM0BkV989vo7o4fg8=
 			</data>
 			<key>hash2</key>
 			<data>
-			KDM4olUmm6hPHbkrUZwY2D+helyVLIkefN8ftDKSIYk=
+			TDkoBLcYxBPITkdh2kidprQzKLaLF76pZAzDB384DQk=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/OSCameraLib.framework/Modules/OSCameraLib.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			yTLqJmUU9ko2VHMKSrSfXIeuk7k=
+			L3r4tYbVWe4DPU56Cwz+Sj+8zHI=
 			</data>
 			<key>hash2</key>
 			<data>
-			PkdtY35pdYJbhSaoC/lNH3WgEZq3iOuH/R0E3/P9kcE=
+			kDudhyU+8b9hzkbDu4wzw4dplwiEUgCg+NkERwAb1YA=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/OSCameraLib.framework/Modules/OSCameraLib.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Gxt3A8jnv9zXL6ucgy6hMtkrwO8=
+			VAd3TF7Jzr9HD5EHisPAHSuEeJs=
 			</data>
 			<key>hash2</key>
 			<data>
-			Vrr/g2jpOiQSvMsEs63x2f8Hq2+hiTGjj5BUHvV1iag=
+			pmU4+XU6hc2snWAF0gGUdnzjy94rwUbBN49W0a0842c=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/OSCameraLib.framework/Modules/OSCameraLib.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			yTLqJmUU9ko2VHMKSrSfXIeuk7k=
+			L3r4tYbVWe4DPU56Cwz+Sj+8zHI=
 			</data>
 			<key>hash2</key>
 			<data>
-			PkdtY35pdYJbhSaoC/lNH3WgEZq3iOuH/R0E3/P9kcE=
+			kDudhyU+8b9hzkbDu4wzw4dplwiEUgCg+NkERwAb1YA=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/OSCameraLib.framework/Modules/module.modulemap</key>
@@ -353,11 +353,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			qNx6U0Qc0zaLWGX8G93cIwbay+U=
+			RfD1Q0aOBycOHMJ7CfXODHUckjg=
 			</data>
 			<key>hash2</key>
 			<data>
-			yRisGhpUqKFaQdMwU6iGkzFJsacDkK6ZjnnpleoQZcQ=
+			jLBwx+IjRxD0AYUVtF3Kqy2SX6GcNTHedFctEUYPHfI=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/OSCameraLib.framework/PrivacyInfo.xcprivacy</key>
@@ -375,11 +375,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			YvXUHX6eU7ENqqUECEprNjZ/vmQ=
+			q/vWx1v4/igKZf4hJKF6tPCrSY8=
 			</data>
 			<key>hash2</key>
 			<data>
-			AZPKUOCrBcvK+cR0Rt0E8lSIkmjUlGZ4WWQzEncHYqk=
+			jUC4emGHLxX0EFjOJ12qHh7+Ybc9J0MD6sEsdL+Y58g=
 			</data>
 		</dict>
 	</dict>
