@@ -12,6 +12,14 @@ The changes documented here do not include those from the original repository.
 
 - (android) Fixes bug when calling `chooseFromGallery` with `allowEdit` enabled (https://outsystemsrd.atlassian.net/browse/RMET-3689).
 - (android) Updates dependency to native library, which adds `@SerializedName` annotation to avoid issues with code obfuscation (https://outsystemsrd.atlassian.net/browse/RMET-3392).
+- (ios) Reinitialise crop window only when orientation mode is changed (https://outsystemsrd.atlassian.net/browse/RMET-3569).
+- (ios) Fix orientation issue when using `ChooseFromGallery` with `AllowEdit` enabled on a picture taken with a rotated camera (https://outsystemsrd.atlassian.net/browse/RMET-3690).
+- (ios) Improve Photo Gallery picture quality (https://outsystemsrd.atlassian.net/browse/RMET-3568).
+
+### Chores
+- (ios) Remove 3rd-party dependencies (https://outsystemsrd.atlassian.net/browse/RMET-3674).
+- (ios) Remove iOS 13 specific code (https://outsystemsrd.atlassian.net/browse/RMET-3675).
+
 
 ## 4.2.0-OS48
 
