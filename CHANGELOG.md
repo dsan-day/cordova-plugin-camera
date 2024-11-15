@@ -28,7 +28,6 @@ The changes documented here do not include those from the original repository.
 - (ios) Remove 3rd-party dependencies (https://outsystemsrd.atlassian.net/browse/RMET-3674).
 - (ios) Remove iOS 13 specific code (https://outsystemsrd.atlassian.net/browse/RMET-3675).
 
-
 ## 4.2.0-OS48
 
 ### Chores
