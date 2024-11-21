@@ -6,6 +6,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 The changes documented here do not include those from the original repository.
 
+## 4.2.0-OS51
+
+### Features
+
+- (android) Adds support for Capacitor builds.
+
+### Fixes
+
+- (android) Add missing permissions for camera and file access.
+
+### Chores
+
+- (android) Removes unnecessary kotlin-kapt plugin, as well as hook.
+
 ## 4.2.0-OS50
 
 ### Fixes
