@@ -8,6 +8,8 @@ The changes documented here do not include those from the original repository.
 
 ## 4.2.0-OS52
 
+### Fixes
+
 ### Features
 - (android) Use PhotoPicker to select media from gallery (https://outsystemsrd.atlassian.net/browse/RMET-3812).
 
