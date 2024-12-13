@@ -269,18 +269,21 @@ class CameraLauncher : CordovaPlugin() {
      * @param encodingType           Compression quality hint (0-100: 0=low quality & high compression, 100=compress of max quality)
      */
     fun callTakePicture(returnType: Int, encodingType: Int) {
-        val saveAlbumPermission = Build.VERSION.SDK_INT < 33 &&
-                PermissionHelper.hasPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) &&
-                PermissionHelper.hasPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+
+        // we don't want to ask for these permissions from Android 11 onwards
+        val saveAlbumPermission = Build.VERSION.SDK_INT >= 30 || !saveToPhotoAlbum ||
+                (PermissionHelper.hasPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) &&
+                PermissionHelper.hasPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE))
+
         val takePicturePermission = PermissionHelper.hasPermission(this, Manifest.permission.CAMERA) ||
                 !hasCameraPermissionDeclared()
 
-        if (takePicturePermission && saveAlbumPermission) {
+        if (takePicturePermission && saveAlbumPermission) { // no permissions need to be requested
             cordova.setActivityResultCallback(this)
             camController?.takePicture(cordova.activity, returnType, encodingType)
-        } else if (saveAlbumPermission && !takePicturePermission) {
+        } else if (saveAlbumPermission) { // we need to request camera permissions
             PermissionHelper.requestPermission(this, TAKE_PIC_SEC, Manifest.permission.CAMERA)
-        } else if (!saveAlbumPermission && takePicturePermission && Build.VERSION.SDK_INT < 33) {
+        } else if (takePicturePermission) { // we need to request storage permissions
             PermissionHelper.requestPermissions(
                 this,
                 TAKE_PIC_SEC,
@@ -289,12 +292,7 @@ class CameraLauncher : CordovaPlugin() {
                     Manifest.permission.WRITE_EXTERNAL_STORAGE
                 )
             )
-        }
-        // we don't want to ask for this permission from Android 13 onwards
-        else if (!saveAlbumPermission && takePicturePermission && Build.VERSION.SDK_INT >= 33) {
-            cordova.setActivityResultCallback(this)
-            camController?.takePicture(cordova.activity, returnType, encodingType)
-        } else {
+        } else { // we need to request both permissions
             PermissionHelper.requestPermissions(this, TAKE_PIC_SEC, permissions)
         }
     }
@@ -308,7 +306,8 @@ class CameraLauncher : CordovaPlugin() {
      */
     fun callGetImage(srcType: Int, returnType: Int, encodingType: Int) {
 
-        if (Build.VERSION.SDK_INT < 33 && !PermissionHelper.hasPermission(
+        // we don't want to ask for this permission from Android 11 onwards
+        if (Build.VERSION.SDK_INT < 30 && !PermissionHelper.hasPermission(
                 this,
                 Manifest.permission.READ_EXTERNAL_STORAGE
             )
@@ -342,12 +341,12 @@ class CameraLauncher : CordovaPlugin() {
 
     fun callEditUriImage(editParameters: OSCAMREditParameters) {
 
-        val galleryPermissionNeeded = Build.VERSION.SDK_INT < 33 &&
+        // we don't want to ask for these permissions from Android 11 onwards
+        val galleryPermissionNeeded = Build.VERSION.SDK_INT < 30 &&
                 (!PermissionHelper.hasPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) ||
                         (editParameters.saveToGallery && !PermissionHelper.hasPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)))
 
-        // we don't want to ask for this permission from Android 13 onwards
-        if (galleryPermissionNeeded && Build.VERSION.SDK_INT < 33) {
+        if (galleryPermissionNeeded) {
             var permissions = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE)
             if (editParameters.saveToGallery) {
                 permissions += Manifest.permission.WRITE_EXTERNAL_STORAGE
@@ -376,8 +375,9 @@ class CameraLauncher : CordovaPlugin() {
         val cameraPermissionNeeded = !PermissionHelper.hasPermission(this, Manifest.permission.CAMERA)
                 && hasCameraPermissionDeclared()
 
-        val galleryPermissionNeeded = saveVideoToGallery && !(Build.VERSION.SDK_INT < 33 &&
-                PermissionHelper.hasPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) &&
+        // we don't want to ask for these permissions from Android 11 onwards
+        val galleryPermissionNeeded = Build.VERSION.SDK_INT < 30 && saveVideoToGallery &&
+                !(PermissionHelper.hasPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) &&
                 PermissionHelper.hasPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE))
 
         if (cameraPermissionNeeded && galleryPermissionNeeded) {
@@ -393,8 +393,8 @@ class CameraLauncher : CordovaPlugin() {
             )
             return
         }
-        // we don't want to ask for this permission from Android 13 onwards
-        else if (galleryPermissionNeeded && Build.VERSION.SDK_INT < 33) {
+
+        else if (galleryPermissionNeeded) {
             PermissionHelper.requestPermissions(
                 this,
                 CAPTURE_VIDEO_SEC,
@@ -430,7 +430,8 @@ class CameraLauncher : CordovaPlugin() {
             return
         }
 
-        if (Build.VERSION.SDK_INT < 33
+        // we don't want to ask for this permission from Android 11 onwards
+        if (Build.VERSION.SDK_INT < 30
             && !PermissionHelper.hasPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)) {
 
             PermissionHelper.requestPermission(
@@ -439,7 +440,6 @@ class CameraLauncher : CordovaPlugin() {
                 Manifest.permission.READ_EXTERNAL_STORAGE
             )
         }
-        // we don't want to ask for this permission from Android 13 onwards
         else {
             callChooseFromGallery()
         }
