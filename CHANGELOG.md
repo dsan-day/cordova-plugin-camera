@@ -12,6 +12,8 @@ The changes documented here do not include those from the original repository.
 - (android) Only request external storage permissions in `TakePicture` if `saveToGallery` is true (https://outsystemsrd.atlassian.net/browse/RMET-3930)
 - (android) Only request external storage permissions for Android <= 10 (https://outsystemsrd.atlassian.net/browse/RMET-3930)
 - (android) Only request camera permission for photo and video if declared (https://outsystemsrd.atlassian.net/browse/RMET-3806)
+- (android) Cropping in edit image when rotating in landscape mode (https://outsystemsrd.atlassian.net/browse/RMET-3840)
+- (android) Crash when trying to edit video (https://outsystemsrd.atlassian.net/browse/RMET-3891)
 
 ## 4.2.0-OS52
 
