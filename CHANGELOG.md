@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 The changes documented here do not include those from the original repository.
 
+## 4.2.0-OS58
+
+### Fixes
+- (ios) Fix input parameters for getPicture Cordova action.
+
 ## 4.2.0-OS57
 
 ### Fixes
