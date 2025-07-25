@@ -10,6 +10,7 @@ The changes documented here do not include those from the original repository.
 
 ### Fixes
 - (ios) Fix input parameters for getPicture Cordova action.
+- (android) Crash in editPicture Cordova action.
 
 ## 4.2.0-OS57
 
