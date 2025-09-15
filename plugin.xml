@@ -66,7 +66,7 @@
             <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
         </config-file>
 
-        <edit-config target="AndroidManifest.xml" parent="application">
+        <config-file target="AndroidManifest.xml" platform="android" parent="/manifest/application" mode="merge">
           <provider
               android:name="org.apache.cordova.camera.FileProvider"
               android:authorities="${applicationId}.camera.provider"
@@ -76,7 +76,7 @@
                   android:name="android.support.FILE_PROVIDER_PATHS"
                   android:resource="@xml/camera_provider_paths"/>
           </provider>
-        </edit-config>
+        </config-file>
 
         <edit-config target="AndroidManifest.xml" parent="/*">
             <queries>
