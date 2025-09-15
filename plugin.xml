@@ -66,7 +66,7 @@
             <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
         </config-file>
 
-        <edit-config target="AndroidManifest.xml" parent="application">
+    <!--    <edit-config target="AndroidManifest.xml" parent="application">
           <provider
               android:name="org.apache.cordova.camera.FileProvider"
               android:authorities="${applicationId}.camera.provider"
@@ -90,7 +90,7 @@
                     <action android:name="android.intent.action.PICK" />
                 </intent>
             </queries>
-        </edit-config>
+        </edit-config>  -->
 
         <source-file src="src/android/CameraLauncher.kt" target-dir="app/src/main/kotlin/org/apache/cordova/camera" />
         <source-file src="src/android/FileProvider.java" target-dir="src/org/apache/cordova/camera" />
